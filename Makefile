@@ -1,19 +1,19 @@
-INCLUDES=
-SOURCES=main.c
-OBJFILES=main.o
+INCLUDES=$(wildcard *.h)
+SOURCES=$(wildcard *.c)
+OBJFILES=$(SOURCES:.c=.o)
 EXEC=prog
-CARGS=-Wall -g
+CARGS=-Wall -g -Werror
+CC=clang
 
-.SUFFIXES : .s .c .o
+.SUFFIXES : .c .o
 
 .c.o:
-	gcc $(CARGS) -c $<
-
-.s.o:
-	gcc $(CARGS) -c $<
+	@echo "CC $< > $@"
+	@$(CC) $(CARGS) -c $<
 
 ${EXEC}: ${OBJFILES}
-	gcc $(CARGS) -o ${EXEC} ${OBJFILES}
+	@echo "LD $^ > $@"
+	@$(CC) $(CARGS) -o $@ $^
 
 ${OBJFILES}: ${SOURCES} ${INCLUDES}
 
