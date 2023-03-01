@@ -12,7 +12,7 @@ CC=clang
 	@$(CC) $(CARGS) -c $<
 
 ${EXEC}: ${OBJFILES}
-	@echo "LD $^ > $@"
+	@echo "CC $^ > $@"
 	@$(CC) $(CARGS) -o $@ $^
 
 ${OBJFILES}: ${SOURCES} ${INCLUDES}
