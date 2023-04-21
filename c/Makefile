@@ -3,6 +3,7 @@ SOURCES=$(wildcard *.c)
 OBJFILES=$(SOURCES:.c=.o)
 EXEC=prog
 CARGS=-Wall -g -Werror
+LDARGS=
 CC=clang
 
 .SUFFIXES : .c .o
