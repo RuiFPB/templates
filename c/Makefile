@@ -14,7 +14,7 @@ CC=clang
 
 ${EXEC}: ${OBJFILES}
 	@echo "CC $^ > $@"
-	@$(CC) $(CARGS) -o $@ $^
+	@$(CC) $(CARGS) $(LDARGS) -o $@ $^
 
 ${OBJFILES}: ${SOURCES} ${INCLUDES}
 
